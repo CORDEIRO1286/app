@@ -1,4 +1,10 @@
+import time
 from datetime import datetime
 
+"""def hoje_formatado():
+    return datetime.now().strftime("%d/%m/%Y")"""
+
 def hoje_formatado():
-    return datetime.today().strftime("%d/%m/%Y")
+    return time.strftime("%d/%m/%Y")
+
+

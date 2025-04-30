@@ -23,8 +23,7 @@ class Relatorio:
                 f"CTe: {item['numero_cte']} | "
                 f"Placa: {item['placa']} | "
                 f"Motorista: {item['nome']} | "
-                f"Data de Entrega: {item['data_entrega']}
-"
+                f"Data de Entrega: {item['data_entrega']}\n"
             )
             self.resultado_texto.insert(tk.END, texto_formatado)
 
@@ -51,6 +50,11 @@ class Relatorio:
                 app.data_entry.config(state='normal')
                 app.data_entry.config(state='readonly')
                 messagebox.showinfo("Sucesso", "CTe Encontrado")
+                app.remente_var.set('')
+                app.codBarra_var.set('')
+                app.placa_var.set('')
+                app.motorista_var.set('')
+                app.data_var.set('')
                 return
         messagebox.showerror("Erro", "CTe não encontrado!")
 
