@@ -34,7 +34,6 @@ class TransportFormApp:
         self.motorista_entry = self.create_label_entry("Motorista:", 5, self.motorista_var, state='readonly')
         self.data_entry = self.create_label_entry("Data:", 6, self.data_var, state='readonly')
         self.obs_entry = self.create_label_entry("Obs:", 7, self.obs_var, state='readonly')
-        self.hora_entry = self.create_label_entry("Hora Atual:", 8, self.horaAtual_var, state='readonly')
 
         # Botões
         self.button_atualizar = tk.Button(self.container, text="Atualizar", command=self.atualizar)
@@ -45,6 +44,7 @@ class TransportFormApp:
 
         self.button_cadastrar = tk.Button(self.container, text="Cadastrar", command=self.cadastrar)
         self.button_cadastrar.grid(row=9, column=2, padx=10, pady=10)
+        self.hora_entry = self.create_label_entry("Hora Atual:", 11, self.horaAtual_var, state='readonly')
 
         # Lógica reativa
         self.codBarra_var.trace_add('write', self.extrair_cte)
@@ -62,7 +62,7 @@ class TransportFormApp:
         return entry
 
     def atualizar_hora(self):
-        agora = time.strftime("%d/%m/%Y %H:%M:%S")
+        agora = time.strftime("%H:%M:%S")
         self.horaAtual_var.set(agora)
 
         self.root.after(1000, self.atualizar_hora)
